@@ -1,0 +1,26 @@
+<div>{% for person in person_list %}
+    <ul>
+        <li ><a href="">&nbsp;{{ person['name'] }}&nbsp;</a></li>
+    </ul>{% end %}
+    <h3 >&nbsp;{{ language['stringid_hello'] }}&nbsp;</h3>
+     
+    <li><select name="select" id="lang_btn">
+       <option value="zh">中文</option>
+       <option value="en">English</option>
+    </select></li>
+ 
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+
+$('body').on('change', '#lang_btn', function(){
+    console.log($(this).val())
+    $.get('/?lang=' + $(this).val(), {}, function(){
+      window.location.reload();
+    })
+});
+
+</script>
+
+
